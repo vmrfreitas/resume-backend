@@ -65,9 +65,9 @@ app.set('views', viewsDir);
 const staticDir = path.join(__dirname, 'public');
 app.use(express.static(staticDir));
 
-// Nav to users pg by default
+// Nav to home page
 app.get('/', (_: Request, res: Response) => {
-  return res.redirect('/users');
+  return res.sendFile('index.html', { root: viewsDir });
 });
 
 // Redirect to login if not logged in.
